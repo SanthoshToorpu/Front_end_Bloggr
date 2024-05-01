@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://backend.santhosh-toorpu.workers.dev/api/v1/"
