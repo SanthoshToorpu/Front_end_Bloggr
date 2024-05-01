@@ -25,6 +25,7 @@ const BlogList = () => {
           }
         });
         setBlogs(res.data)
+        console.log(res.data)
       } catch (error) {
         console.log(error)
       }
@@ -201,7 +202,7 @@ const BlogPost = ({ thumbnail, title, description }: { thumbnail: string | null;
       <div className="p-4 space-y-2 md:w-1/2">
         <a className="text-xl font-medium leading-tight flex items-center gap-4" href="#">
           <img
-            src="/placeholder.svg"
+            src="https://avatars.githubusercontent.com/u/11386313?v=4"
             alt="Avatar"
             width="32"
             height="32"
