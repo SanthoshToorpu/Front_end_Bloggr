@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BACKEND_URL } from "../config";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 const BlogList = () => {
 
   interface Blog {
@@ -20,7 +19,7 @@ const BlogList = () => {
     const fetchdata = async () => {
       try {
         setLoading(true)
-        const res = await axios.get(`http://127.0.0.1:8787/api/v1/blog/allblogs`, {
+        const res = await axios.get(`${BACKEND_URL}blog/allblogs`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
           }
