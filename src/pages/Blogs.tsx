@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BACKEND_URL } from "../config";
+import { Link } from "react-router-dom";
 const BlogList = () => {
 
   interface Blog {
@@ -39,16 +40,29 @@ const BlogList = () => {
 
 
   return (
-    <div className="px-4 py-6 md:px-6 md:py-12">
+    <div className="px-4 py-8">
       <div className="flex flex-col gap-6 md:gap-8">
         <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-4 border-b-2 pb-4 mx-8">
             <div className="flex items-center gap-4">
               <div className="relative h-12 w-12 ml-8">
-                <img src="https://www.svgrepo.com/show/354057/medium-icon.svg" alt=""  />
+              <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6 text-gray-600 dark:text-gray-400"
+            >
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
+            </svg>
               </div>
               <div className="flex flex-col">
-                <h1 className="text-3xl font-bold">My Medium</h1>
+                <h1 className="text-3xl font-bold">Bloggr</h1>
                 <p className="text-gray-500 dark:text-gray-400">A place to share my thoughts</p>
               </div>
             </div>
@@ -67,12 +81,14 @@ const BlogList = () => {
         <p>Loading...</p>
           ) : (
             blogs.map((blog) => (
-              <BlogPost
+              <Link to={`/blogs/${blog.id}`} key={blog.id}>
+                <BlogPost
                 key={blog.id}
                 thumbnail={blog.thumbnailUrl}
                 title={blog.title}
-                description={blog.content}
+                description={blog.content} 
               />
+              </Link> 
             ))
           )}
           </div>
@@ -189,7 +205,7 @@ const BlogList = () => {
   );
 };
 
-const BlogPost = ({ thumbnail, title, description }: { thumbnail: string | null; title: string; description: string }) => {
+const BlogPost = ({ thumbnail, title, description }: { thumbnail: string | null; title: string; description: string,  }) => {
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm dark:border-gray-800 flex flex-col md:flex-row">
       <div className="relative ">
