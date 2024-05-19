@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { BACKEND_URL } from "../config"
 import axios from "axios"
@@ -80,7 +80,6 @@ const Blog = () => {
       description: 'Explore the exciting possibilities of generative AI and how it will shape the future of content creation.',
     },
   ];
-  const navigate = useNavigate()
   return (
     <div className="w-full">            
   <section className=" bg-gray-100 py-12 md:py-24 lg:py-14 dark:bg-gray-800">

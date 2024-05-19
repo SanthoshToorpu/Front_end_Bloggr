@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BACKEND_URL } from "../config";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const BlogList = () => {
 
   interface Blog {
@@ -42,7 +42,6 @@ const BlogList = () => {
     fetchdata()
   },[])
 
-  const navigate = useNavigate()
 
   return (
     <div className="px-4 py-8">
