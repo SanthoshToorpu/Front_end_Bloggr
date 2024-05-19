@@ -6,13 +6,18 @@ const Blog = () => {
 
     const {id} = useParams()
     interface Blog {
-        id: number
-        title: string
-        content: string
-        authorId: number
-        thumbnailUrl: string | null
-        createdAt: string
-    }
+        id: number;
+        title: string;
+        content: string;
+        authorId: number;
+        thumbnailUrl: string;
+        createdAt: string;
+        author: {
+          username: string;
+        };
+        signedUrl: string;
+      }
+      
   const [Loading, setLoading] = useState(true);
   const [blog, setBlog] = useState<Blog>({} as Blog);
 
@@ -135,7 +140,7 @@ const Blog = () => {
         </div>
         {blog.thumbnailUrl ? (
           <img
-            src={blog.thumbnailUrl}
+            src={blog.signedUrl}
             alt="Blog Post Thumbnail"
             className="w-full rounded-lg object-cover"
           />
@@ -156,7 +161,7 @@ const Blog = () => {
     <div className="container mx-auto px-4 md:px-6">
       <div className="space-y-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Related Posts</h2>
-        <div className="grid cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex gap-4 overflow-x-auto">
           {relatedPosts.map((post, index) => (
             <div
               key={index}

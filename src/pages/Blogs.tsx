@@ -9,9 +9,14 @@ const BlogList = () => {
     title: string;
     content: string;
     authorId: number;
-    thumbnailUrl: string | null;
+    thumbnailUrl: string;
     createdAt: string;
+    author: {
+      username: string;
+    };
+    signedUrl: string;
   }
+  
 
   const [Loading, setLoading] = useState(true);
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -84,7 +89,7 @@ const BlogList = () => {
               <Link to={`/blogs/${blog.id}`} key={blog.id}>
                 <BlogPost
                 key={blog.id}
-                thumbnail={blog.thumbnailUrl}
+                thumbnail={blog.signedUrl}
                 title={blog.title}
                 description={blog.content} 
               />
@@ -207,7 +212,7 @@ const BlogList = () => {
 
 const BlogPost = ({ thumbnail, title, description }: { thumbnail: string | null; title: string; description: string,  }) => {
   return (
-    <div className="border rounded-lg overflow-hidden shadow-sm dark:border-gray-800 flex flex-col md:flex-row">
+    <div className=" border rounded-lg overflow-hidden shadow-sm dark:border-gray-800 flex flex-col md:flex-row my-4">
       <div className="relative ">
         <img
           src={thumbnail? thumbnail : "/placeholder.svg"}
