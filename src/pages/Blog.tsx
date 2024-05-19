@@ -42,44 +42,44 @@ const Blog = () => {
     fetchdata()
   },[])
 
-  const relatedPosts = [
-    {
-      imageUrl: '/placeholder.svg',
-      category: 'AI & Machine Learning',
-      title: 'Unlocking the Potential of Generative AI in Content Creation',
-      description: 'Discover how generative AI is transforming the way we create and consume content.',
-    },
-    {
-      imageUrl: '/placeholder.svg',
-      category: 'Productivity',
-      title: 'Boosting Productivity with Generative AI: Tips and Tricks',
-      description: 'Learn how to leverage generative AI to streamline your content creation workflow.',
-    },
-    {
-      imageUrl: '/placeholder.svg',
-      category: 'Trends',
-      title: 'The Future of Content Creation: Embracing Generative AI',
-      description: 'Explore the exciting possibilities of generative AI and how it will shape the future of content creation.',
-    },
-    {
-      imageUrl: '/placeholder.svg',
-      category: 'AI & Machine Learning',
-      title: 'Unlocking the Potential of Generative AI in Content Creation',
-      description: 'Discover how generative AI is transforming the way we create and consume content.',
-    },
-    {
-      imageUrl: '/placeholder.svg',
-      category: 'Productivity',
-      title: 'Boosting Productivity with Generative AI: Tips and Tricks',
-      description: 'Learn how to leverage generative AI to streamline your content creation workflow.',
-    },
-    {
-      imageUrl: '/placeholder.svg',
-      category: 'Trends',
-      title: 'The Future of Content Creation: Embracing Generative AI',
-      description: 'Explore the exciting possibilities of generative AI and how it will shape the future of content creation.',
-    },
-  ];
+  // const relatedPosts = [
+  //   {
+  //     imageUrl: '/placeholder.svg',
+  //     category: 'AI & Machine Learning',
+  //     title: 'Unlocking the Potential of Generative AI in Content Creation',
+  //     description: 'Discover how generative AI is transforming the way we create and consume content.',
+  //   },
+  //   {
+  //     imageUrl: '/placeholder.svg',
+  //     category: 'Productivity',
+  //     title: 'Boosting Productivity with Generative AI: Tips and Tricks',
+  //     description: 'Learn how to leverage generative AI to streamline your content creation workflow.',
+  //   },
+  //   {
+  //     imageUrl: '/placeholder.svg',
+  //     category: 'Trends',
+  //     title: 'The Future of Content Creation: Embracing Generative AI',
+  //     description: 'Explore the exciting possibilities of generative AI and how it will shape the future of content creation.',
+  //   },
+  //   {
+  //     imageUrl: '/placeholder.svg',
+  //     category: 'AI & Machine Learning',
+  //     title: 'Unlocking the Potential of Generative AI in Content Creation',
+  //     description: 'Discover how generative AI is transforming the way we create and consume content.',
+  //   },
+  //   {
+  //     imageUrl: '/placeholder.svg',
+  //     category: 'Productivity',
+  //     title: 'Boosting Productivity with Generative AI: Tips and Tricks',
+  //     description: 'Learn how to leverage generative AI to streamline your content creation workflow.',
+  //   },
+  //   {
+  //     imageUrl: '/placeholder.svg',
+  //     category: 'Trends',
+  //     title: 'The Future of Content Creation: Embracing Generative AI',
+  //     description: 'Explore the exciting possibilities of generative AI and how it will shape the future of content creation.',
+  //   },
+  // ];
   return (
     <div className="w-full">            
   <section className=" bg-gray-100 py-12 md:py-24 lg:py-14 dark:bg-gray-800">
