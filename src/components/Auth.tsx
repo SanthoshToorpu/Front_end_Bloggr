@@ -22,8 +22,11 @@ const Auth = ({type}: {type: "signin" | "signup"}) => {
     try {
       const response = await axios.post(`${BACKEND_URL}user/${type === "signin" ? "signin" : "signup"}`, postInputs);
       const jwt = response.data.user_token;
+      const userid = response.data.user_id
       localStorage.setItem("jwt", jwt);
-      navigate("/blogs")
+      localStorage.setItem("userid", userid);
+      localStorage.setItem("username", postInputs.username);
+      {type === "signin" ? navigate("/blogs") : navigate("/newuser")}
     } catch (error) {
       console.log(error)
     }
@@ -39,12 +42,12 @@ const Auth = ({type}: {type: "signin" | "signup"}) => {
                             username: e.target.value
                         })
                     }} /> 
-          <Labeledinput type="email" Label="Email" placeholder='Email' onchange={(e : any) => {
+          {type === "signup" ? <Labeledinput type="email" Label="Email" placeholder='Email' onchange={(e : any) => {
                         setPostInputs({
                             ...postInputs,
                             email: e.target.value
                         })
-                    }}/>
+                    }}/> : null}
           <Labeledinput type="password" Label="Password" placeholder='Password' onchange={(e : any) => {
                         setPostInputs({
                             ...postInputs,

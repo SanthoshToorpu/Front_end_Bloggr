@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BACKEND_URL } from "../config";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const BlogList = () => {
 
   interface Blog {
@@ -42,43 +42,12 @@ const BlogList = () => {
     fetchdata()
   },[])
 
-
+  const navigate = useNavigate()
 
   return (
     <div className="px-4 py-8">
       <div className="flex flex-col gap-6 md:gap-8">
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-between gap-4 border-b-2 pb-4 mx-8">
-            <div className="flex items-center gap-4">
-              <div className="relative h-12 w-12 ml-8">
-              <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6 text-gray-600 dark:text-gray-400"
-            >
-              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
-            </svg>
-              </div>
-              <div className="flex flex-col">
-                <h1 className="text-3xl font-bold">Bloggr</h1>
-                <p className="text-gray-500 dark:text-gray-400">A place to share my thoughts</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="relative h-8 w-8">
-                <img src="/placeholder.svg" alt="Avatar" className="rounded-full object-cover" />
-              </div>
-              <p className="text-gray-500 dark:text-gray-400">@username</p>
-            </div>
-          </div>
-        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           <div className="space-y-4 md:col-span-2 md:space-y-8 m-8">
             {/* Blog posts */}
@@ -232,7 +201,7 @@ const BlogPost = ({ thumbnail, title, description }: { thumbnail: string | null;
           />
           {title}
         </a>
-        <p className="text-gray-500 dark:text-gray-400">{`${description.substring(0, 150)}.....`}</p>
+        <div dangerouslySetInnerHTML={{ __html: description.substring(0, 300) }} />
       </div>
     </div>
   );

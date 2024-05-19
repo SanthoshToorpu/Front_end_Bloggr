@@ -1,51 +1,18 @@
 import { Link } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function Component() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      navigate("/blogs");
+    }
+  }, [navigate]);
   return (
     <>
-      <header className="bg-gray-100 dark:bg-gray-900 py-4 shadow">
-        <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
-          <a className="flex items-center gap-2" href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6 text-gray-600 dark:text-gray-400"
-            >
-              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
-            </svg>
-            <span className="text-xl font-bold text-gray-800 dark:text-gray-200">Bloggr</span>
-          </a>
-          <nav className="hidden md:flex items-center gap-6">
-            <a className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">
-              Features
-            </a>
-            <a className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">
-              Pricing
-            </a>
-            <a className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">
-              About
-            </a>
-            <a className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">
-              Contact
-            </a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link to="/signin" className="hidden md:inline-flex h-9 items-center justify-center rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-gray-300 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-900">
-              Sign In
-            </Link>
-            <Link to={"/signup"} className="inline-flex h-9 items-center justify-center rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-gray-300 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-900">
-              Sign Up
-            </Link>
-          </div>
-        </div>
-      </header>
+      
       <main>
         <section className="bg-gray-100 dark:bg-gray-900 py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
