@@ -23,14 +23,16 @@ const Auth = ({ type }: { type: 'signin' | 'signup' }) => {
       localStorage.setItem('jwt', jwt);
       localStorage.setItem('userid', userid);
       localStorage.setItem('username', postInputs.username);
-      alert('loggedin')
+      alert('loggedin');
       type === 'signin' ? navigate('/blogs') : navigate('/newuser');
     } catch (error) {
-      console.log(error);
+      console.log('Error response:', error); // Log error response
+      alert(`Error: ${error}`);
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="flex items-center justify-center bg-gray-950 p-8 lg:p-12 xl:p-16">
