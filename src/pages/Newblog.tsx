@@ -68,7 +68,7 @@ const BlogEditor: React.FC = () => {
           <ReactQuill value={content} onChange={handleContentChange} className="bg-white rounded-md shadow-sm" />
         </div>
         <div className="form-group">
-          <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">Upload Image</label>
+          <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">Thumbnail</label>
           <input
             type="file"
             id="image"

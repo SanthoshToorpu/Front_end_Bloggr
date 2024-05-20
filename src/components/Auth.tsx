@@ -23,6 +23,7 @@ const Auth = ({ type }: { type: 'signin' | 'signup' }) => {
       localStorage.setItem('jwt', jwt);
       localStorage.setItem('userid', userid);
       localStorage.setItem('username', postInputs.username);
+      alert(response)
       type === 'signin' ? navigate('/blogs') : navigate('/newuser');
     } catch (error) {
       console.log(error);
