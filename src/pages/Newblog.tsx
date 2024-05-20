@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import styles
+import axios from 'axios';
+import { BACKEND_URL } from '../config';
+
 
 const BlogEditor: React.FC = () => {
   const [content, setContent] = useState<string>('');
@@ -27,20 +30,14 @@ const BlogEditor: React.FC = () => {
     }
 
     try {
-      const response = await fetch('/newblog', {
-        method: 'POST',
-        body: formData,
+      const response = await axios.post(`${BACKEND_URL}blog/newblog`, formData, {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`, // Replace with your actual auth mechanism
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${localStorage.getItem('jwt')}`, // Replace with your actual auth mechanism
         },
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to submit blog');
-      }
-
-      const result = await response.json();
-      console.log('Blog submitted successfully:', result);
+      console.log('Blog submitted successfully:', response.data);
 
       // Reset form
       setTitle('');
